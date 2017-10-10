@@ -14,8 +14,13 @@ def matriz_adj(vertices):
         row=[]
     return matrix
     
-def matriz_incid(vertices):
-    arestas=
+def matriz_inc_d(vertices):
+    matrix=[]
+    arestas=[x for x in input.split()]
+    row=[]
+    for i in range(len(arestas)):
+        for j in range(len(vertices)):
+            ans=int(input("Sentido do arco: \n1 para saída\n-1 entrada\n0 ausência de arcos"))
 print("Vértices do grafo:")
 vertices=[int(x) for x in input().split()]
 opt=input("Escolha o tipo de representação:\n1 matriz de adjacência\n2 matriz de incidência\n3 lista de adjacências")
@@ -23,4 +28,4 @@ matrix=[]
 if opt == 1:
     matrix=matriz_adj(vertices)
 elif opt == 2:
-    matrix=matriz_incid(vertices)
+    matrix=matriz_inc_d(vertices)
