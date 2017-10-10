@@ -21,11 +21,22 @@ def matriz_inc_d(vertices):
     for i in range(len(arestas)):
         for j in range(len(vertices)):
             ans=int(input("Sentido do arco: \n1 para saída\n-1 entrada\n0 ausência de arcos"))
+            row.append(ans)
+        matrix.append(row)
+        row=[]
+    return matrix
+
+def afficher_matrice(matrix):
+    for i in matrix:
+        print(i)
+        
 print("Vértices do grafo:")
 vertices=[int(x) for x in input().split()]
-opt=input("Escolha o tipo de representação:\n1 matriz de adjacência\n2 matriz de incidência\n3 lista de adjacências")
+opt=int(input("Escolha o tipo de representação:\n1 matriz de adjacência\n2 matriz de incidência\n3 lista de adjacências"))
 matrix=[]
 if opt == 1:
     matrix=matriz_adj(vertices)
 elif opt == 2:
     matrix=matriz_inc_d(vertices)
+
+afficher_matrice(matrix)
