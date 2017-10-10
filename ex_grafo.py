@@ -26,7 +26,7 @@ def matriz_inc_d(vertices):
         row=[]
     return matrix
 
-def afficher_matrice(matrix):
+def mostrar_matriz(matrix):
     for i in matrix:
         print(i)
         
@@ -39,4 +39,4 @@ if opt == 1:
 elif opt == 2:
     matrix=matriz_inc_d(vertices)
 
-afficher_matrice(matrix)
+mostrar_matriz(matrix)
