@@ -3,6 +3,7 @@
 Representação de grafos
 Autores: Israël e Renan
 '''
+#matriz de adjacências (tanto orientados como não orientados)
 def matriz_adj(vertices):
     matrix=[]
     row=[]
@@ -13,20 +14,36 @@ def matriz_adj(vertices):
         matrix.append(row)
         row=[]
     return matrix
-    
+
+#matriz de incidência para grafos orientados    
 def matriz_inc_d(vertices):
     matrix=[]
-    arestas=[x for x in input.split()]
+    print("Insira letras ou numeros como nomes de arcos")
+    arestas=[x for x in input().split()]
     row=[]
     for i in range(len(arestas)):
         for j in range(len(vertices)):
-            ans=int(input("Sentido do arco: \n1 para saída\n-1 entrada\n0 ausência de arcos"))
+            ans=int(input("Sentido do arco '{}' no vertice {}: \n1 para saída\n-1 entrada\n0 ausência de arcos".format(arestas[i],vertices[j])))
             row.append(ans)
         matrix.append(row)
         row=[]
     return matrix
 
-def afficher_matrice(matrix):
+#matriz de incidencia para grafos não orientados
+def matriz_inc_i(vertices):
+    matrix=[]
+    print("Insira letras ou numeros como nomes de arcos")
+    arestas=[x for x in input().split()]
+    row=[]
+    for i in range(len(arestas)):
+        for j in range(len(vertices)):
+            ans=int(input("Sentido do arco '{}' no vertice {}: \n1 para saída\n-1 entrada\n0 ausência de arcos".format(arestas[i],vertices[j])))
+            row.append(ans)
+        matrix.append(row)
+        row=[]
+    return matrix
+    
+def mostrar_matriz(matrix):
     for i in matrix:
         print(i)
         
@@ -37,6 +54,10 @@ matrix=[]
 if opt == 1:
     matrix=matriz_adj(vertices)
 elif opt == 2:
-    matrix=matriz_inc_d(vertices)
+    o=int(input("\n1 direcionado\n1 não direcionado: "))
+    if o==1:
+        matrix=matriz_inc_d(vertices)
+    else:
+        matrix=matriz_inc_i(vertices)
 
-afficher_matrice(matrix)
+mostrar_matriz(matrix)
