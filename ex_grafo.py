@@ -4,7 +4,7 @@ Representação de grafos
 Autores: Israël e Renan
 '''
 #matriz de adjacências (tanto orientados como não orientados)
-from pip._vendor.html5lib.html5parser import adjust_attributes
+
 def matriz_adj(vertices):
     matrix=[]
     row=[]
