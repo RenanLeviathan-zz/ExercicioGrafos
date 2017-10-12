@@ -16,7 +16,7 @@ def matriz_adj(vertices):
         row=[]
     return matrix
 
-#matriz de incidência para grafos orientados    
+#matriz de incidência para grafos direcionados  
 def matriz_inc_d(vertices):
     matrix=[]
     print("Insira letras ou numeros como nomes de arcos")
@@ -30,7 +30,7 @@ def matriz_inc_d(vertices):
         row=[]
     return matrix
 
-#matriz de incidencia para grafos não orientados
+#matriz de incidencia para grafos não direcionados
 def matriz_inc_i(vertices):
     matrix=[]
     print("Insira letras ou numeros como nomes de arestas")
@@ -44,15 +44,15 @@ def matriz_inc_i(vertices):
         row=[]
     return matrix
     
-def listaAdj(vertices):
+def lista_adj(vertices):
     lista={}
-    opt='s'
-    for i in lista:
+    for i in vertices:
+        opt=1
         adj=[]
-        while opt=='s':
-            v=int(input("adjacentes a {}".format(vertices[i])))
+        while opt==1:
+            v=int(input("adjacentes a {}\n".format(i)))
             adj.append(v)
-            opt=input("Adicionar vizinhos[s/n]?")
+            opt=int(input("Adicionar vizinhos\n1 para sim e 0 para não\n?"))
         lista[i]=adj
     return lista
             
@@ -68,7 +68,6 @@ print("Vértices do grafo:")
 vertices=[int(x) for x in input().split()]
 opt=int(input("Escolha o tipo de representação:\n1 matriz de adjacência\n2 matriz de incidência\n3 lista de adjacências"))
 matrix=[]
-lista={}
 if opt == 1:
     matrix=matriz_adj(vertices)
 elif opt == 2:
